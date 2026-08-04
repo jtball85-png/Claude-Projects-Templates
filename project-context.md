@@ -37,14 +37,13 @@ A personal study assistant for Josh's FIN370T finance course, using Cornett, Ada
 Brand new project. Chapters 1–3 are populated with readable page-scan PNGs (92 pages total) in /Research; chapters 4–5 are empty placeholders for later in the course. Course guide (fin370T_v2_CourseGuide.pdf) and syllabus (fin370t_v2_syllabus.docx) have been added to the repo root. Citation format (APA) and the review-question response format have been established from Josh's examples. No prompts or review sessions have been run yet.
 
 ## Where we left off
-Last commit: N/A
-In progress: Project setup — first session
+Last commit: ec72722 — New app project initialized — FIN370T Finance Course Assistant
+In progress: none
 Branch: main
 
 ## What's next
-- [ ] Review/index chapters 1–3 content — Claude Code
+- [ ] Review/index chapters 2–3 content — Claude Code
 - [ ] Handle first weekly prompt — Claude Code / Chat
-- [ ] Begin practicing review questions — Claude Code / Chat
 
 ## File structure
 ```
@@ -87,4 +86,5 @@ Browser tasks, desktop automation, file management.
 Use project-context-updater.html on Cowork-heavy days.
 
 ## Change log
+- 2026-08-04 — New app project initialized — FIN370T Finance Course Assistant — Source: Claude Code
 - 2026-08-04 — Project initialized — Source: Claude Code
