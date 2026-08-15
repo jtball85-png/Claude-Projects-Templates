@@ -48,6 +48,11 @@ Also included by default: the `markitdown` skill, which converts Word,
 PowerPoint, Excel, images, audio, and other files to Markdown on request
 (via the `markitdown` CLI). See `.claude/skills/markitdown/SKILL.md`.
 
+A sixth command, `/checkpoint`, is a stripped-down `/end-of-day` for any time
+you're about to `/clear` mid-session — same memory capture, none of the
+ceremony, since Claude can't trigger `/clear` itself and needs a safe point
+to hand off from first.
+
 ---
 
 ## Getting started
@@ -85,6 +90,7 @@ your-project/
       end-of-day.md         ← run every session end
       dev-team.md            ← optional, multi-step feature work
       sync-tools.md           ← optional, pulls latest from library/
+      checkpoint.md           ← optional, mid-session save before /clear
   docs/
     Daily-Workflow.txt      ← quick reference for daily steps
     Session-0-Project-Kickoff.txt  ← what /new-project asks and why
