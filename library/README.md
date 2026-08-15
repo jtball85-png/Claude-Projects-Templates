@@ -15,3 +15,4 @@ Templates stay lean. This folder is where things accumulate.
 | Component | Type | Status |
 |---|---|---|
 | [dev-team](agents/dev-team/) | agents | Graduated — included in both templates |
+| [sync-tools](commands/sync-tools.md) | commands | Graduated — included in both templates |

@@ -37,6 +37,12 @@ architect, coder, tester, manager — instead of handling it in one session
 directly. Worth it for multi-step feature work; skip it for small,
 well-defined edits. See `docs/Dev-Team-Workflow.txt` for the full rundown.
 
+A fifth command, `/sync-tools`, pulls the latest agents/skills/commands
+from `library/` in the [Claude-Projects-Templates](https://github.com/jtball85-png/Claude-Projects-Templates)
+repo into this project — run it any time you want the latest tools you've
+collected there, without re-copying the whole template. It asks before
+overwriting anything you've customized locally.
+
 ---
 
 ## Getting started
@@ -71,6 +77,7 @@ app-project-template/
       start-of-day.md       ← run every session start
       end-of-day.md         ← run every session end
       dev-team.md            ← optional, multi-step feature work
+      sync-tools.md           ← optional, pulls latest from library/
   docs/
     Daily-Workflow.txt      ← quick reference for daily steps
     Session-0-Project-Kickoff.txt  ← what /new-project does and why
