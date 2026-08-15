@@ -43,6 +43,10 @@ repo into this project — run it any time you want the latest tools you've
 collected there, without re-copying the whole template. It asks before
 overwriting anything you've customized locally.
 
+Also included by default: the `markitdown` skill, which converts Word,
+PowerPoint, Excel, images, audio, and other files to Markdown on request
+(via the `markitdown` CLI). See `.claude/skills/markitdown/SKILL.md`.
+
 ---
 
 ## Getting started
@@ -72,6 +76,8 @@ app-project-template/
       coder.md                ← optional, used by /dev-team
       tester.md                ← optional, used by /dev-team
       manager.md              ← optional, used by /dev-team
+    skills/
+      markitdown/SKILL.md     ← converts files to Markdown on request
     commands/
       new-project.md        ← run once on day one
       start-of-day.md       ← run every session start

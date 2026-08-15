@@ -16,3 +16,5 @@ Templates stay lean. This folder is where things accumulate.
 |---|---|---|
 | [dev-team](agents/dev-team/) | agents | Graduated — included in both templates |
 | [sync-tools](commands/sync-tools.md) | commands | Graduated — included in both templates |
+| [markitdown](skills/markitdown/) | skills | Graduated — included in both templates |
+| [remove-ai-marks](skills/remove-ai-marks/) | skills | Library-only — needs an external service, pull in via `/sync-tools` when wanted |
