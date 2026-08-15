@@ -12,10 +12,49 @@ project-context.md doesn't hold. It is Claude's memory between sessions.
 - 2026-08-15 — Consolidated the two templates into one, branching in `/new-project`
 - 2026-08-15 — Removed stale FIN370T files from the repo root; real project lives in its own `Finance-Class` repo
 - 2026-08-15 — `git pull`/`git push` added to `/start-of-day`/`/end-of-day` — the gap that let `Finance-Class` silently diverge into two local clones
+- 2026-08-15 — GitHub CLI (`gh`) installed and authenticated on this machine, enabling real repo creation from Claude Code for the first time
+- 2026-08-15 — `publish-to-github` skill added and wired into `/new-project`'s final step — new projects now get a GitHub repo automatically, name/visibility always confirmed first
 
 ---
 
 ## Sessions
+
+## Session — 2026-08-15 (end of day)
+
+**Focus:** Continuation of today's session — added `publish-to-github` (graduated, wired into `/new-project`), generalized the `bitwarden-env-sync` tool out of `Josh Ball Art`, finished the git/GitHub lesson (public vs. private + secrets, branches), then did a full pass across the actual project folders: committed pending `checkpoint`/`sync-tools` additions in 4 repos, fully set up `Character Sheet 5E` (git init, `.gitignore`, GitHub repo, `master`→`main` fix), and deliberately left `Josh Ball Art` and `claude-project-GC PM APP` untouched pending the user's own review.
+
+**Decisions made:**
+- `gh` CLI installed via winget and authenticated (device-flow login) — this repo's own remote already existed, but this unlocks creating *new* repos from Claude Code going forward
+- `publish-to-github` skill built and graduated straight into `project-template` (not left library-only) since `/new-project` depends on it existing in every freshly-copied project — asks for repo name and public/private before ever creating anything, never silent
+- `/new-project` now also `git init`s automatically if needed — the last manual pre-step is gone
+- `bitwarden-env-sync` generalized from a project-specific setup in `Josh Ball Art` (hardcoded vault item name, assumed `.venv`) into portable tooling — vault item name now derives from the project folder name, Python runner no longer assumes a virtualenv. Filed under a new `library/tools/` category (standalone scripts a human runs, not something `/sync-tools` reaches) — kept library-only, not graduated, since it needs a Bitwarden account and a genuinely multi-computer project
+- Checked actual visibility of every repo on the account via `gh repo list`: 4 public (`Claude-Projects-Templates`, `Josh-Ball-Art-Brain`, `Credit-Mapping-Chart-Tool`, `claude-run-canvas`), 5 private — this repo's own "private" preference from earlier in the session never actually got applied, since it turned out to already exist on GitHub with whatever visibility it already had
+
+**Problems solved:**
+- 6 project folders had `checkpoint.md`/`sync-tools.md` sitting uncommitted since earlier in the session — committed and pushed in the 4 straightforward ones (`Finance-Class`, `VACE VC CLass Comparison`, `Class-Helper`, `claude-project-food-fasting-tracker APP`), touching only those two files and leaving each project's own unrelated pending work (`app.py`/`catalog.json` in Class-Helper, `ketotrack-ui-redesign.md` in the fasting tracker) exactly as found
+- `claude-project-Character Sheet 5E` had no git history at all — initialized, gitignored `.env`/`__pycache__`/three copyrighted D&D module PDFs (53MB + two chapter excerpts, kept local-only rather than pushed to GitHub), committed, published to a new private repo, and fixed an unwanted `master` default branch to `main` for consistency with every other repo
+
+**Approaches discussed:**
+- Public vs. private repos and secrets: bots scan GitHub for exposed keys within minutes of a push; the only real fix for a leaked secret is rotation, not history cleanup; avoid pasting real secret values into chat when avoidable
+- Branches for a solo user: the PR/review ceremony is a team-collaboration answer to a problem that mostly doesn't apply solo; still worth reaching for a branch when trying something you might abandon entirely, so `main` never needs a messy revert
+
+**Left unresolved:**
+- `claude-project-GC PM APP` — still no GitHub remote, still a large pile of never-committed work including one file that looks deleted (`.claude/commands/end-session.md`) — needs the user's own review before anything touches it
+- `Josh Ball Art` — still 12 commits behind its GitHub remote, with substantial uncommitted work in progress across many files and new folders — same, needs the user's own review before any pull/merge
+- The 4 public repos haven't been individually reviewed for whether public is actually intended, or should be flipped to private
+- `Class-Helper`'s `app.py`/`catalog.json` changes and the fasting tracker's `ketotrack-ui-redesign.md` remain uncommitted in their own repos — untouched on purpose, status unknown
+- Other `Documents\Claude Projects\` folders beyond the ones already checked still haven't been audited for Finance-Class-style duplicate-clone drift
+
+**Files changed this session:**
+```
+ 13 files changed, 584 insertions(+), 10 deletions(-)
+ (since the earlier checkpoint, commit 6e1a5ab through 9218805 — plus
+ out-of-repo work across Character-Sheet-5E, Finance-Class, VACE-VC-CLass-
+ Comparison, Class-Helper, and keto-fasting-tracker, not reflected in this
+ repo's own diff)
+```
+
+---
 
 ## Session — 2026-08-15 (checkpoint)
 
