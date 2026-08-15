@@ -1,0 +1,50 @@
+DEV TEAM WORKFLOW — OPTIONAL
+==============================
+Four subagents that split feature work into plan, implement, verify, review,
+instead of one agent doing all four in its head.
+
+
+THE FOUR ROLES
+----------------
+  architect  Plans the approach. Read-only — no edits.
+  coder      Implements the plan. Full edit access.
+  tester     Runs tests, exercises edge cases. Read-only — reports, doesn't fix.
+  manager    Reviews everything against the original ask, leaves fix notes
+             or ships. Read-only.
+
+Tester and manager are deliberately read-only. A single agent grading its
+own work will rationalize past its own mistakes more easily than an
+independent pass will.
+
+
+WHEN TO USE /dev-team
+-----------------------
+Multi-step feature work — enough surface area that a wrong assumption
+early on is expensive to discover late.
+
+
+WHEN NOT TO
+-------------
+Small, well-defined edits or quick fixes. Routing a one-line change through
+four agent handoffs is slower and burns more tokens than just making the
+change directly. Use the individual agents or a normal session instead.
+
+
+HOW IT RUNS
+-------------
+  [ ] Run: /dev-team <task description>
+  [ ] architect produces a plan — shown to you, not gated on approval
+  [ ] coder implements it
+  [ ] tester verifies it
+  [ ] manager reviews plan + diff + test results
+        - clean → done
+        - issues → one fix round back to coder, then re-test/re-review
+        - still not right after that one round → stops and shows you
+          the unresolved notes directly, instead of looping again
+
+
+WHERE THIS CAME FROM
+-----------------------
+See ../../library/agents/dev-team/README.md for the full writeup and for
+where to drop future finds (new agents, skills, commands) before deciding
+whether they belong in this template by default.

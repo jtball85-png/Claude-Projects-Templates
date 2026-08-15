@@ -30,6 +30,15 @@ Everything else — the three slash commands, two memory files, daily workflow �
 
 ---
 
+## Optional: the dev-team workflow
+
+A fourth command, `/dev-team <task>`, routes a task through four subagents —
+architect, coder, tester, manager — instead of handling it in one session
+directly. Worth it for multi-step feature work; skip it for small,
+well-defined edits. See `docs/Dev-Team-Workflow.txt` for the full rundown.
+
+---
+
 ## Getting started
 
 **Day one:**
@@ -52,13 +61,20 @@ Everything else — the three slash commands, two memory files, daily workflow �
 ```
 app-project-template/
   .claude/
+    agents/
+      architect.md           ← optional, used by /dev-team
+      coder.md                ← optional, used by /dev-team
+      tester.md                ← optional, used by /dev-team
+      manager.md              ← optional, used by /dev-team
     commands/
       new-project.md        ← run once on day one
       start-of-day.md       ← run every session start
       end-of-day.md         ← run every session end
+      dev-team.md            ← optional, multi-step feature work
   docs/
     Daily-Workflow.txt      ← quick reference for daily steps
     Session-0-Project-Kickoff.txt  ← what /new-project does and why
+    Dev-Team-Workflow.txt   ← what /dev-team does and when to use it
   project-context.md        ← project status (auto-updated by end-of-day)
   project-memory.md         ← session memory (auto-updated by end-of-day)
   Project-Instructions.txt  ← paste this into your Claude Project instructions box
