@@ -1,7 +1,7 @@
 # Claude Project Template
 
 A project management system for working with Claude Code, Chat, and Cowork
-without losing context between sessions.
+without losing context between sessions — for apps and general projects alike.
 
 ---
 
@@ -21,6 +21,13 @@ Three slash commands run the system automatically inside Claude Code:
 | `/new-project` | Once — on day one of any new project |
 | `/start-of-day` | Every session start |
 | `/end-of-day` | Every session end |
+
+`/new-project` starts by asking whether this is an app/browser-based project
+or something else. App projects get extra questions — architecture decision,
+tech stack, user flow, data model — and the resulting `project-context.md`
+gets the matching extra sections. General projects skip straight to status,
+what's next, and key files. Everything downstream (`/start-of-day`,
+`/end-of-day`, the memory files) works the same either way.
 
 ---
 
@@ -80,7 +87,7 @@ your-project/
       sync-tools.md           ← optional, pulls latest from library/
   docs/
     Daily-Workflow.txt      ← quick reference for daily steps
-    Session-0-Project-Kickoff.txt  ← guide for what /new-project does
+    Session-0-Project-Kickoff.txt  ← what /new-project asks and why
     Dev-Team-Workflow.txt   ← what /dev-team does and when to use it
   project-context.md        ← project status (auto-updated by end-of-day)
   project-memory.md         ← session memory (auto-updated by end-of-day)

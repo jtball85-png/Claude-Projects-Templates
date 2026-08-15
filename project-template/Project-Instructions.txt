@@ -8,8 +8,9 @@ without sharing it, remind me to paste it before we begin.
 ## The two memory files
 
 project-context.md
-  Project status — what it is, where it stands, what's next.
-  Updated automatically at end of every Claude Code session.
+  Project status — what it is, where it stands, what's next. For app
+  projects, also includes the architecture decision, tech stack, and
+  user flow. Updated automatically at end of every Claude Code session.
 
 project-memory.md
   Session memory — decisions, reasoning, and context from every
@@ -19,11 +20,14 @@ project-memory.md
 
 ## The three slash commands (Claude Code only)
 
-/new-project    Run once on day one. Interviews the user, fills out
+/new-project    Run once on day one. Determines whether this is an app
+                or general project, interviews accordingly (app projects
+                get extra architecture/tech-stack questions), fills out
                 project-context.md, creates project-memory.md, commits both.
 
 /start-of-day   Run at the start of every session. Reads both memory files,
-                confirms orientation, asks what we're working on today.
+                confirms orientation (including architecture and tech stack
+                for app projects), asks what we're working on today.
 
 /end-of-day     Run at the end of every session. Captures session decisions
                 into project-memory.md, updates project-context.md, commits both.
@@ -32,13 +36,26 @@ project-memory.md
 
 ## Your role in updates
 
-Only update these three sections when I explicitly ask:
+Only update these sections when I explicitly ask:
   - Where we left off
   - What's next
   - Change log
 
 Do not rewrite other sections unless I explicitly ask or a major
-change makes it necessary.
+change makes it necessary. For app projects, architecture and tech
+stack decisions especially should not change without explicit discussion.
+
+---
+
+## Architecture flags (app projects only)
+
+If this is an app project and I mention changing the architecture
+(e.g. going from static to full stack), flag it before acting:
+"This would change the architecture decision — are you sure you want
+to shift from static to full stack?"
+
+If I mention adding a new external API or service, ask:
+"Does this need to be hidden from the browser? If so, we may need a backend."
 
 ---
 

@@ -9,37 +9,77 @@ WHAT /new-project DOES
 ------------------------
 When you run /new-project in Claude Code, it:
 
-  1. Asks you to describe your project idea
-  2. Interviews you one question at a time — waits for clear answers
-  3. Uses your answers to fill out project-context.md completely
-  4. Creates project-memory.md to capture session decisions
-  5. Commits both files as your project's first checkpoint
+  1. Asks whether this is an app/browser-based project or something else
+  2. Asks you to describe your project idea
+  3. Interviews you one question at a time — waits for clear answers.
+     App projects get extra questions: architecture, tech stack, user
+     flow, data model, environment variables.
+  4. Uses your answers to fill out project-context.md completely
+  5. Creates project-memory.md to capture session decisions
+  6. Commits both files as your project's first checkpoint
 
 You do not fill out project-context.md manually.
-You do not create project-memory.md manually.
-/new-project does both.
+You do not make the architecture decision alone, if this is an app.
+/new-project walks you through it.
+
+
+THE MOST IMPORTANT QUESTION — APP PROJECTS ONLY
+---------------------------------------------------
+For app projects, before any code is written, /new-project will ask:
+
+  "Does this app need to save data between sessions or between users?"
+
+This is the question that determines everything:
+
+  No  → Static frontend. HTML/CSS/JS only.
+        No server. No database. Deploy by dropping a folder on Vercel.
+
+  Yes → Full stack. Frontend + Backend + Database.
+        Users log in. Data persists. Secrets stay hidden from the browser.
+
+  Not sure → Start static. Plan to upgrade.
+             It's easier to add a backend later than to remove one.
+
+Answer honestly. "Not sure" is a valid answer.
 
 
 WHAT /new-project ASKS YOU
 ----------------------------
-These are the questions it will ask, one at a time:
+Both project types start the same way, then branch:
 
-  1. What's the idea? (project description)
-  2. Where does it stand? (new, started, or stalled)
-  3. What exists already? (files, decisions, research)
-  4. What are the first 3 things that need to happen?
-  5. Which tool handles each task? (Chat / Claude Code / Cowork)
-  6. Key terms and folder structure?
-  7. Most important files?
-  8. Anything broken, blocked, or uncertain?
+  1. Is this an app, or something else?
+  2. What's the idea?
 
-Take your time. Claude will ask follow-up questions if your answers
-are unclear. Do not move on until each answer is solid.
+  App projects also get:
+  3.  Does it need to save data? (architecture decision)
+  4.  Does it need to hide secrets from the browser?
+  5.  Tech stack — frontend, backend, database, auth, deployment, APIs
+  6.  User flow — walk through the app as a user start to finish
+  7.  Data model — what are the things in this app and how do they relate?
+
+  Both continue with:
+  8.  Current status — new, started, or stalled?
+  9.  What exists already?
+  10. First 3 tasks to move forward
+  11. Tool assignment — Chat / Claude Code / Cowork for each task
+
+  App projects also get:
+  12. Environment variables — what secrets will this app need?
+
+  General projects also get:
+  12. Key terms and folder structure?
+  13. Most important files?
+
+  Both end with:
+  14. Anything broken, blocked, or uncertain? (app projects also: hardest
+      part to build?)
+
+Take your time. Claude will ask follow-up questions if answers are unclear.
 
 
 BEFORE RUNNING /new-project
 -----------------------------
-  [ ] Copy the project template folder
+  [ ] Copy the project-template folder
   [ ] Rename it for your new project
   [ ] Open it in VS Code
   [ ] Make sure git is initialized (the .git folder exists)
@@ -50,23 +90,41 @@ AFTER /new-project COMPLETES
 ------------------------------
   [ ] Review the generated project-context.md — confirm it looks right
   [ ] Paste Project-Instructions.txt into your Claude Project instructions box
-  [ ] Run /start-of-day to begin your first session
-  [ ] Run /end-of-day when you're done
+  [ ] Run /start-of-day to begin your first working session
+  [ ] Run /end-of-day when you're done for the day
 
 
 THE TWO MEMORY FILES
 ----------------------
 project-context.md
-  What the project is, where it stands, what's next.
-  Claude reads this to know the project status.
+  What the project is, where it stands, what's next. For app projects:
+  also architecture decision, tech stack, user flow. Claude reads this
+  to know project status.
 
 project-memory.md
   Decisions, reasoning, and session context.
-  Claude reads this to remember why things are the way they are.
+  Claude reads this to remember why things are the way they are —
+  especially architecture and tech stack choices, for app projects.
 
 Both files are updated automatically by /end-of-day.
 Both files are read automatically by /start-of-day.
 You never edit them manually unless something needs correcting.
+
+
+ARCHITECTURE QUICK REFERENCE — APP PROJECTS ONLY
+------------------------------------------------------
+Static frontend   = HTML/CSS/JS only. No server. No database.
+                    Use when: no saved data, no user accounts, no secrets.
+                    Deploy: drop a folder on Vercel or Netlify. Done.
+
+Full stack        = Frontend + Backend + Database.
+                    Use when: users log in, data persists, secrets must be hidden.
+                    Common simple stack: HTML/JS + Supabase + Vercel.
+
+The question: "Does this app need to remember anything between visits,
+or between different users?"
+  No  → static frontend
+  Yes → full stack
 
 
 DAILY WORKFLOW AFTER SESSION 0
@@ -76,4 +134,4 @@ See Daily-Workflow.txt for the full day-to-day reference.
 Short version:
   Start of day  →  /start-of-day
   End of day    →  /end-of-day
-  New project   →  /new-project
+  New project   →  /new-project (once only)

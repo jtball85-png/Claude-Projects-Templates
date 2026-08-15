@@ -10,8 +10,10 @@ DAY ONE OF A NEW PROJECT
   [ ] Open it in VS Code
   [ ] Open Claude Code
   [ ] Run: /new-project
-      (Interviews you, fills out project-context.md,
-       creates project-memory.md, commits both)
+      (Asks whether this is an app project or a general one, interviews
+       you accordingly — app projects get extra architecture/tech-stack
+       questions — fills out project-context.md, creates project-memory.md,
+       commits both)
   [ ] Work
   [ ] Run: /end-of-day
 

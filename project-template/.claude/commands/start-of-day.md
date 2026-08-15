@@ -33,10 +33,14 @@ After reading both files, give the user a short orientation summary in this exac
 ---
 **Project:** [project name from project-context.md]
 **Last updated:** [date from project-context.md]
+**Architecture:** [only if project-context.md has an Architecture decision section — Static frontend / Full stack]
+**Tech stack:** [only if project-context.md has a Tech stack table — one line summary]
 **Where we left off:** [1–2 sentences from the "Where we left off" section]
 **What's next:** [list the open tasks from "What's next"]
 **Last session memory:** [1–2 sentences summarizing the most recent entry in project-memory.md]
 ---
+
+Omit the Architecture and Tech stack lines entirely for projects that don't have those sections — don't show them as empty.
 
 Keep it short. Facts only. No interpretation.
 
