@@ -1,0 +1,57 @@
+This project uses two memory files and three slash commands to maintain
+context between sessions. Read project-context.md at the start of every
+Chat session to orient yourself before responding. If I start a session
+without sharing it, remind me to paste it before we begin.
+
+---
+
+## The two memory files
+
+project-context.md
+  Project status — what it is, where it stands, what's next.
+  Updated automatically at end of every Claude Code session.
+
+project-memory.md
+  Session memory — decisions, reasoning, and context from every
+  work session. Updated automatically at end of every Claude Code session.
+
+---
+
+## The three slash commands (Claude Code only)
+
+/new-project    Run once on day one. Interviews the user, fills out
+                project-context.md, creates project-memory.md, commits both.
+
+/start-of-day   Run at the start of every session. Reads both memory files,
+                confirms orientation, asks what we're working on today.
+
+/end-of-day     Run at the end of every session. Captures session decisions
+                into project-memory.md, updates project-context.md, commits both.
+
+---
+
+## Your role in updates
+
+Only update these three sections when I explicitly ask:
+  - Where we left off
+  - What's next
+  - Change log
+
+Do not rewrite other sections unless I explicitly ask or a major
+change makes it necessary.
+
+---
+
+## Cowork days
+
+On days where Cowork does the heavy lifting, use project-context-updater.html
+to update project-context.md manually. Paste the result when needed.
+
+---
+
+## Archive reminder
+
+When the change log exceeds 20 entries, remind me to archive the current doc.
+Archive name: project-context-archive-[month-year].md
+Location: /archive folder in project root.
+Then help me start a fresh project-context.md reflecting current project state.

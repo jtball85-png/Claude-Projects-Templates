@@ -1,0 +1,81 @@
+CLAUDE PROJECT SYSTEM — DAILY WORKFLOW
+========================================
+Your step-by-step guide for every type of work day.
+
+
+DAY ONE OF A NEW PROJECT
+--------------------------
+  [ ] Copy the project template folder
+  [ ] Rename it for your new project
+  [ ] Open it in VS Code
+  [ ] Open Claude Code
+  [ ] Run: /new-project
+      (Interviews you, fills out project-context.md,
+       creates project-memory.md, commits both)
+  [ ] Work
+  [ ] Run: /end-of-day
+
+
+START OF EVERY WORK DAY (Claude Code)
+---------------------------------------
+  [ ] Open VS Code — project loads automatically
+  [ ] Open Claude Code
+  [ ] Run: /start-of-day
+      (Reads project-context.md and project-memory.md,
+       confirms orientation, asks what you're working on)
+  [ ] Work
+
+
+END OF EVERY WORK DAY (Claude Code)
+--------------------------------------
+  [ ] Run: /end-of-day
+      (Captures session decisions into project-memory.md,
+       updates project-context.md, commits both files)
+
+
+START OF A CHAT SESSION
+-------------------------
+  [ ] Open your Claude Project in Chat
+  [ ] Paste project-context.md to orient Claude
+  [ ] Work
+
+
+END OF A COWORK-HEAVY DAY
+---------------------------
+  [ ] Open project-context-updater.html in your browser
+  [ ] Drop in your current project-context.md
+  [ ] Paste your Cowork session summary and any notes
+  [ ] Hit update — download the new file
+  [ ] Replace project-context.md in your Claude Project
+
+
+EVERY 20 CHANGE LOG ENTRIES
+-----------------------------
+Chat will remind you automatically. When it does:
+
+  [ ] Save current doc as project-context-archive-[month-year].md
+  [ ] Move it to your /archive folder
+  [ ] Ask Chat: "Help me write a fresh project-context.md based
+      on where this project stands today."
+  [ ] Replace project-context.md in your Claude Project
+
+
+TOOL QUICK REFERENCE
+----------------------
+Claude Code   = Building, editing, reading files
+                /new-project  → day one of any new project
+                /start-of-day → every session start
+                /end-of-day   → every session end
+
+Chat          = Thinking, planning, decisions, fuzzy problems
+                Paste project-context.md at session start
+
+Cowork        = Browser tasks, desktop automation, file management
+                Use project-context-updater.html at end of day
+
+
+THE ONE RULE
+-------------
+project-context.md and project-memory.md are your project's memory.
+Claude has no memory between sessions — these files are how it remembers.
+Keep them current. /end-of-day handles it automatically.

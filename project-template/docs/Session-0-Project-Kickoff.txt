@@ -1,0 +1,79 @@
+SESSION 0 — NEW PROJECT REFERENCE GUIDE
+=========================================
+This is a reference doc explaining what /new-project does and why.
+You do not run through this manually — /new-project handles it automatically.
+Read this once to understand the system. Then trust the skill.
+
+
+WHAT /new-project DOES
+------------------------
+When you run /new-project in Claude Code, it:
+
+  1. Asks you to describe your project idea
+  2. Interviews you one question at a time — waits for clear answers
+  3. Uses your answers to fill out project-context.md completely
+  4. Creates project-memory.md to capture session decisions
+  5. Commits both files as your project's first checkpoint
+
+You do not fill out project-context.md manually.
+You do not create project-memory.md manually.
+/new-project does both.
+
+
+WHAT /new-project ASKS YOU
+----------------------------
+These are the questions it will ask, one at a time:
+
+  1. What's the idea? (project description)
+  2. Where does it stand? (new, started, or stalled)
+  3. What exists already? (files, decisions, research)
+  4. What are the first 3 things that need to happen?
+  5. Which tool handles each task? (Chat / Claude Code / Cowork)
+  6. Key terms and folder structure?
+  7. Most important files?
+  8. Anything broken, blocked, or uncertain?
+
+Take your time. Claude will ask follow-up questions if your answers
+are unclear. Do not move on until each answer is solid.
+
+
+BEFORE RUNNING /new-project
+-----------------------------
+  [ ] Copy the project template folder
+  [ ] Rename it for your new project
+  [ ] Open it in VS Code
+  [ ] Make sure git is initialized (the .git folder exists)
+  [ ] Open Claude Code
+
+
+AFTER /new-project COMPLETES
+------------------------------
+  [ ] Review the generated project-context.md — confirm it looks right
+  [ ] Paste Project-Instructions.txt into your Claude Project instructions box
+  [ ] Run /start-of-day to begin your first session
+  [ ] Run /end-of-day when you're done
+
+
+THE TWO MEMORY FILES
+----------------------
+project-context.md
+  What the project is, where it stands, what's next.
+  Claude reads this to know the project status.
+
+project-memory.md
+  Decisions, reasoning, and session context.
+  Claude reads this to remember why things are the way they are.
+
+Both files are updated automatically by /end-of-day.
+Both files are read automatically by /start-of-day.
+You never edit them manually unless something needs correcting.
+
+
+DAILY WORKFLOW AFTER SESSION 0
+--------------------------------
+See Daily-Workflow.txt for the full day-to-day reference.
+
+Short version:
+  Start of day  →  /start-of-day
+  End of day    →  /end-of-day
+  New project   →  /new-project
