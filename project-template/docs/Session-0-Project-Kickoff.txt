@@ -16,11 +16,17 @@ When you run /new-project in Claude Code, it:
      flow, data model, environment variables.
   4. Uses your answers to fill out project-context.md completely
   5. Creates project-memory.md to capture session decisions
-  6. Commits both files as your project's first checkpoint
+  6. Initializes git if it isn't already, and commits both files as your
+     project's first checkpoint
+  7. Creates the GitHub repo and pushes to it (via the publish-to-github
+     skill) — asks for a name and public/private first, never silent
+     about it. If GitHub CLI isn't set up yet, it says so and moves on
+     rather than blocking the rest of setup.
 
 You do not fill out project-context.md manually.
 You do not make the architecture decision alone, if this is an app.
-/new-project walks you through it.
+You do not need git initialized or a GitHub repo created beforehand.
+/new-project walks you through all of it.
 
 
 THE MOST IMPORTANT QUESTION — APP PROJECTS ONLY
@@ -82,14 +88,20 @@ BEFORE RUNNING /new-project
   [ ] Copy the project-template folder
   [ ] Rename it for your new project
   [ ] Open it in VS Code
-  [ ] Make sure git is initialized (the .git folder exists)
   [ ] Open Claude Code
+
+git init and the GitHub repo both happen automatically now — nothing to
+prepare there. First time only: GitHub CLI (`gh`) needs to be installed
+and authenticated for the GitHub step to work (`winget install --id
+GitHub.cli`, then `gh auth login --web`) — /new-project will tell you if
+it's missing rather than fail silently.
 
 
 AFTER /new-project COMPLETES
 ------------------------------
   [ ] Review the generated project-context.md — confirm it looks right
   [ ] Paste Project-Instructions.txt into your Claude Project instructions box
+  [ ] Confirm the GitHub repo it created looks right (name, visibility)
   [ ] Run /start-of-day to begin your first working session
   [ ] Run /end-of-day when you're done for the day
 

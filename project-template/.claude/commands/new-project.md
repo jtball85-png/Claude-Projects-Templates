@@ -308,6 +308,14 @@ project-context.md doesn't hold. It is Claude's memory between sessions.
 
 ## 6. Save both files
 
+If this folder isn't a git repo yet, initialize it first:
+
+```bash
+git rev-parse --is-inside-work-tree || git init
+```
+
+Then commit:
+
 ```bash
 git add project-context.md project-memory.md
 git commit -m "New [app ]project initialized — [Project Name]"
@@ -317,11 +325,19 @@ Use "New app project initialized" for app projects, "New project initialized" fo
 
 ---
 
-## 7. Done
+## 7. Publish to GitHub
+
+Use the `publish-to-github` skill to create the GitHub repo and push this initial commit. It will ask for a repo name (default to the project's folder name) and public/private (default private) — don't skip that confirmation.
+
+If the skill stops because `gh` isn't installed or authenticated, tell the user and continue to Step 8 anyway — the project is still fully set up locally, it just isn't backed up to GitHub yet. Don't block finishing the project over this.
+
+---
+
+## 8. Done
 
 Tell the user:
 
-"Your [app ]project is set up and committed.
+"Your [app ]project is set up and committed[, and pushed to GitHub / — not yet pushed to GitHub, see above].
 
 From here:
 - Start every session with /start-of-day
@@ -330,4 +346,4 @@ From here:
 
 What are we working on in this first session?"
 
-Fill in the bracketed parts based on project type; drop the brackets and extra spacing.
+Fill in the bracketed parts based on project type and what happened in Step 7; drop the brackets and extra spacing.

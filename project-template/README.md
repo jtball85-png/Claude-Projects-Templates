@@ -29,6 +29,12 @@ gets the matching extra sections. General projects skip straight to status,
 what's next, and key files. Everything downstream (`/start-of-day`,
 `/end-of-day`, the memory files) works the same either way.
 
+`/new-project` also initializes git if needed and, via the `publish-to-github`
+skill, creates a matching GitHub repo and pushes the first commit — asking
+for a name and public/private first, never silently. Requires GitHub CLI
+(`gh`) installed and authenticated once; if it isn't, `/new-project` says so
+and finishes the rest of setup anyway rather than blocking on it.
+
 ---
 
 ## Optional: the dev-team workflow
@@ -84,6 +90,7 @@ your-project/
       manager.md              ← optional, used by /dev-team
     skills/
       markitdown/SKILL.md     ← converts files to Markdown on request
+      publish-to-github/SKILL.md  ← used by /new-project to create + push the GitHub repo
     commands/
       new-project.md        ← run once on day one
       start-of-day.md       ← run every session start

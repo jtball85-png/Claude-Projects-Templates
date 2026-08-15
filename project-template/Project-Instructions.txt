@@ -23,7 +23,8 @@ project-memory.md
 /new-project    Run once on day one. Determines whether this is an app
                 or general project, interviews accordingly (app projects
                 get extra architecture/tech-stack questions), fills out
-                project-context.md, creates project-memory.md, commits both.
+                project-context.md, creates project-memory.md, commits
+                both, and creates + pushes to a new GitHub repo.
 
 /start-of-day   Run at the start of every session. Pulls the latest from
                 GitHub first (so work from other computers is picked up),

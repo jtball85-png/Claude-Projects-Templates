@@ -13,7 +13,7 @@ DAY ONE OF A NEW PROJECT
       (Asks whether this is an app project or a general one, interviews
        you accordingly — app projects get extra architecture/tech-stack
        questions — fills out project-context.md, creates project-memory.md,
-       commits both)
+       commits both, then creates a GitHub repo and pushes to it)
   [ ] Work
   [ ] Run: /end-of-day
 

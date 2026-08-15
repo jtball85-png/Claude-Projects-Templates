@@ -19,3 +19,4 @@ Templates stay lean. This folder is where things accumulate.
 | [checkpoint](commands/checkpoint.md) | commands | Graduated — included in the template |
 | [markitdown](skills/markitdown/) | skills | Graduated — included in the template |
 | [remove-ai-marks](skills/remove-ai-marks/) | skills | Library-only — needs an external service, pull in via `/sync-tools` when wanted |
+| [publish-to-github](skills/publish-to-github/) | skills | Graduated — included in the template, used by /new-project |
