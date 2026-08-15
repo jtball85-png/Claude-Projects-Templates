@@ -1,6 +1,6 @@
 ---
 name: start-of-day
-description: Start of session orientation — read project-context.md and project-memory.md, confirm understanding, and ask what we're working on today.
+description: Start of session orientation — pull the latest from GitHub, read project-context.md and project-memory.md, confirm understanding, and ask what we're working on today.
 ---
 
 # Start of Day — Session Orientation
@@ -11,7 +11,32 @@ Do NOT begin working until all steps are complete.
 
 ---
 
-## 1. Read both context files
+## 1. Sync with GitHub
+
+Check whether this project has a remote:
+
+```bash
+git remote -v
+```
+
+If there's no remote, skip straight to Step 2 — this project isn't connected to GitHub yet.
+
+If there is a remote, pull:
+
+```bash
+git pull
+```
+
+Handle the result:
+
+- **Up to date, or pulled cleanly (fast-forward):** continue to Step 2.
+- **Pull refuses because of local uncommitted changes that would be overwritten:** STOP. Do not stash, discard, or force anything. Tell the user exactly what's uncommitted and that you stopped before touching it — let them decide how to proceed.
+- **Pull results in a merge conflict:** STOP. Do not resolve `project-context.md` or `project-memory.md` conflicts silently. Show the user which files conflict and ask how they want to resolve it — usually this means keeping both sides' `Sessions` / change-log entries rather than picking one.
+- **Pull fails because GitHub is unreachable (network/auth):** warn the user you couldn't check for updates and are proceeding with the local copy, which may be behind. Continue to Step 2 — don't block the session over a network hiccup.
+
+---
+
+## 2. Read both context files
 
 Read the following files from the project root:
 
@@ -26,7 +51,7 @@ If either file is missing, stop and tell the user:
 
 ---
 
-## 2. Confirm orientation
+## 3. Confirm orientation
 
 After reading both files, give the user a short orientation summary in this exact format:
 
@@ -46,7 +71,7 @@ Keep it short. Facts only. No interpretation.
 
 ---
 
-## 3. Ask what we're working on today
+## 4. Ask what we're working on today
 
 After the summary, ask exactly this:
 
@@ -56,7 +81,7 @@ Wait for the user's answer before doing anything else.
 
 ---
 
-## 4. Begin
+## 5. Begin
 
 Once the user confirms the focus for today, acknowledge it in one sentence and begin.
 

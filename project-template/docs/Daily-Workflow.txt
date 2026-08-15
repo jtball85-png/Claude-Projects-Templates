@@ -23,16 +23,17 @@ START OF EVERY WORK DAY (Claude Code)
   [ ] Open VS Code — project loads automatically
   [ ] Open Claude Code
   [ ] Run: /start-of-day
-      (Reads project-context.md and project-memory.md,
-       confirms orientation, asks what you're working on)
+      (Pulls the latest from GitHub first, then reads project-context.md
+       and project-memory.md, confirms orientation, asks what you're
+       working on)
   [ ] Work
 
 
 END OF EVERY WORK DAY (Claude Code)
 --------------------------------------
   [ ] Run: /end-of-day
-      (Captures session decisions into project-memory.md,
-       updates project-context.md, commits both files)
+      (Captures session decisions into project-memory.md, updates
+       project-context.md, commits both files, and pushes to GitHub)
 
 
 START OF A CHAT SESSION
