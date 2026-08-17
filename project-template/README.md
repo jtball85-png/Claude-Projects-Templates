@@ -54,6 +54,12 @@ Also included by default: the `markitdown` skill, which converts Word,
 PowerPoint, Excel, images, audio, and other files to Markdown on request
 (via the `markitdown` CLI). See `.claude/skills/markitdown/SKILL.md`.
 
+And the `audit-phase` skill: audits a phase `project-context.md` claims is
+"done" against the spec it was built from, the tests meant to prove it, and
+any output artifacts — flagging status-doc drift and real gaps rather than
+taking the status docs' word for it. Run it before marking a phase complete.
+See `.claude/skills/audit-phase/SKILL.md`.
+
 A sixth command, `/checkpoint`, is a stripped-down `/end-of-day` for any time
 you're about to `/clear` mid-session — same memory capture, none of the
 ceremony, since Claude can't trigger `/clear` itself and needs a safe point
@@ -91,6 +97,7 @@ your-project/
     skills/
       markitdown/SKILL.md     ← converts files to Markdown on request
       publish-to-github/SKILL.md  ← used by /new-project to create + push the GitHub repo
+      audit-phase/SKILL.md    ← audits a "done" phase against its spec and status docs
     commands/
       new-project.md        ← run once on day one
       start-of-day.md       ← run every session start

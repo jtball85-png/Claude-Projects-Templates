@@ -21,4 +21,5 @@ Templates stay lean. This folder is where things accumulate.
 | [markitdown](skills/markitdown/) | skills | Graduated — included in the template |
 | [remove-ai-marks](skills/remove-ai-marks/) | skills | Library-only — needs an external service, pull in via `/sync-tools` when wanted |
 | [publish-to-github](skills/publish-to-github/) | skills | Graduated — included in the template, used by /new-project |
+| [audit-phase](skills/audit-phase/) | skills | Graduated — included in the template |
 | [bitwarden-env-sync](tools/bitwarden-env-sync/) | tools | Library-only — needs a Bitwarden account and a project actually used across multiple computers; install manually per its own README |
