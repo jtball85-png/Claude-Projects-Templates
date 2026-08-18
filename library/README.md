@@ -23,3 +23,4 @@ Templates stay lean. This folder is where things accumulate.
 | [publish-to-github](skills/publish-to-github/) | skills | Graduated — included in the template, used by /new-project |
 | [audit-phase](skills/audit-phase/) | skills | Graduated — included in the template |
 | [bitwarden-env-sync](tools/bitwarden-env-sync/) | tools | Library-only — needs a Bitwarden account and a project actually used across multiple computers; install manually per its own README |
+| [claude-account-switcher](tools/claude-account-switcher/) | tools | Library-only — Windows-only, per-computer setup (not per-project); run `setup.ps1` on each machine per its own README |
