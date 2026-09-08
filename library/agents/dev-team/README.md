@@ -6,12 +6,12 @@ Inspired by a video workflow that ran this by hand: four separate Claude chats, 
 
 ## The four roles
 
-| Agent | Tools | Job |
-|---|---|---|
-| `architect` | read-only + web | Breaks the task into a plan, names files/patterns to reuse |
-| `coder` | read/write/bash | Implements the plan |
-| `tester` | read-only + bash | Runs tests, exercises edge cases, reports pass/fail — cannot edit |
-| `manager` | read-only + bash | Reviews everything against the original request, leaves fix notes or ships |
+| Agent | Tools | Model | Job |
+|---|---|---|---|
+| `architect` | read-only + web | opus | Breaks the task into a plan, names files/patterns to reuse |
+| `coder` | read/write/bash | sonnet | Implements the plan |
+| `tester` | read-only + bash | sonnet | Runs tests, exercises edge cases, reports pass/fail — cannot edit |
+| `manager` | read-only + bash | opus | Reviews everything against the original request, leaves fix notes or ships |
 
 The tester and manager are deliberately read-only. Separating "did it work" and "is it right" from the coder's own judgment is the point — a single agent grading its own homework will rationalize past its own mistakes more easily than an independent pass will.
 
