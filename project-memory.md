@@ -19,6 +19,35 @@ project-context.md doesn't hold. It is Claude's memory between sessions.
 
 ## Sessions
 
+## Session — 2026-09-08
+
+**Focus:** User asked to make sure the Desktop folder for this project was synced to the GitHub repo.
+
+**Decisions made:**
+- User's Desktop folder is a general personal/work desktop (business program flyers, book-pricing spreadsheets, personal photos, a D&D PDF, screenshots) with nothing specific to this project — confirmed with the user that only this project folder (`Documents\Claude Projects Templates`, already git-connected to the repo) should be synced, not the Desktop
+- `__pycache__/` and `*.pyc` added to `.gitignore` after finding a stray compiled `.pyc` untracked alongside `project-template/Tools/capture_pages.py`
+
+**Problems solved:**
+- Two previously-untracked items (`.claude/commands/*.md` and `project-template/Tools/`) committed and pushed
+- `git push` was rejected because the remote had 9 commits from another machine/session (2026-08-17 through 2026-08-18, e.g. `claude-account-switcher`, `audit-phase` skill) not yet pulled here — resolved with `git pull --rebase origin main`, no conflicts, then pushed clean
+
+**Left unresolved:**
+- None from this session
+
+**Files changed this session:**
+```
+ .claude/commands/checkpoint.md           |  73 +++++++++
+ .claude/commands/end-of-day.md           | 140 +++++++++++++++++
+ .claude/commands/new-project.md          | 243 ++++++++++++++++++++++++++++
+ .claude/commands/start-of-day.md         |  88 +++++++++++
+ .gitignore                               |   2 +
+ project-template/Tools/Capture Pages.bat |   3 +
+ project-template/Tools/capture_pages.py  | 262 +++++++++++++++++++++++++++++++
+ 7 files changed, 811 insertions(+)
+```
+
+---
+
 ## Session — 2026-08-15 (end of day)
 
 **Focus:** Continuation of today's session — added `publish-to-github` (graduated, wired into `/new-project`), generalized the `bitwarden-env-sync` tool out of `Josh Ball Art`, finished the git/GitHub lesson (public vs. private + secrets, branches), then did a full pass across the actual project folders: committed pending `checkpoint`/`sync-tools` additions in 4 repos, fully set up `Character Sheet 5E` (git init, `.gitignore`, GitHub repo, `master`→`main` fix), and deliberately left `Josh Ball Art` and `claude-project-GC PM APP` untouched pending the user's own review.

@@ -1,5 +1,5 @@
 # Project: Claude-Projects-Templates
-Last updated: 2026-08-15 by Claude Code
+Last updated: 2026-09-08 by Claude Code
 
 ## What this project is
 Personal Claude Code project scaffolding. `project-template/` is the day-one starting point for every new project (app or general — `/new-project` branches). `library/` is a growing collection of reusable agents, skills, and commands, pulled into a project on demand with `/sync-tools` once they've earned a spot, or graduated into `project-template/` once they should ship by default.
@@ -8,7 +8,7 @@ Personal Claude Code project scaffolding. `project-template/` is the day-one sta
 Actively maintained, under git, pushed to a private GitHub remote (`github.com/jtball85-png/Claude-Projects-Templates`). `project-template/` was originally two separate templates (`app-project-template` and `project-template`) and got consolidated into one, since the only real difference was the app-specific interview branch in `/new-project`. `library/` currently holds `dev-team` (4 subagents), `sync-tools`, `checkpoint`, and `markitdown` — all graduated into `project-template` — plus `remove-ai-marks`, kept library-only since it needs an external service most projects won't have running.
 
 ## Where we left off
-Last commit: 9218805 — Add bitwarden-env-sync tool, generalized from Josh Ball Art
+Last commit: 68cc8ac — Add Claude Code custom commands and page-capture tool
 In progress: none
 Branch: main
 
@@ -54,5 +54,6 @@ Browser tasks, desktop automation, file management.
 Use project-context-updater.html on Cowork-heavy days.
 
 ## Change log
+- 2026-09-08 — Add Claude Code custom commands and page-capture tool (68cc8ac) — Source: Claude Code
 - 2026-08-15 — Added publish-to-github skill (graduated), generalized bitwarden-env-sync into library/tools/, installed+authenticated gh CLI, finished the git/GitHub lesson, cleaned up 5 project folders (4 committed/pushed, Character Sheet 5E fully connected to GitHub) — Source: Claude Code
 - 2026-08-15 — project-context.md and project-memory.md created via /checkpoint — Source: Claude Code
