@@ -19,6 +19,34 @@ project-context.md doesn't hold. It is Claude's memory between sessions.
 
 ## Sessions
 
+## Session — 2026-09-08 (dev-team model assignment)
+
+**Focus:** User changed model usage within the dev-team subagents in a separate project repo (jtball85-png/Solo-DND) and asked Claude to confirm the change there, then port it into this repo's library and project-template.
+
+**Decisions made:**
+- Confirmed via `gh api` against jtball85-png/Solo-DND (commit `b092bab`, 2026-09-05): dev-team agents got explicit `model:` frontmatter — `architect` and `manager` on `opus`, `coder` and `tester` on `sonnet`. Agent bodies otherwise unchanged.
+- Ported the same `model:` assignments into both local copies: `library/agents/dev-team/` (source) and `project-template/.claude/agents/` (graduated copy), keeping the two in sync as the README's stated convention requires
+- Added a Model column to `library/agents/dev-team/README.md`'s role table so the docs reflect the new per-agent model split
+
+**Problems solved:**
+- None (straightforward port, no conflicts)
+
+**Files changed this session:**
+```
+ library/agents/dev-team/README.md            | 12 ++++++------
+ library/agents/dev-team/architect.md         |  1 +
+ library/agents/dev-team/coder.md             |  1 +
+ library/agents/dev-team/manager.md           |  1 +
+ library/agents/dev-team/tester.md            |  1 +
+ project-template/.claude/agents/architect.md |  1 +
+ project-template/.claude/agents/coder.md     |  1 +
+ project-template/.claude/agents/manager.md   |  1 +
+ project-template/.claude/agents/tester.md    |  1 +
+ 9 files changed, 14 insertions(+), 6 deletions(-)
+```
+
+---
+
 ## Session — 2026-09-08
 
 **Focus:** User asked to make sure the Desktop folder for this project was synced to the GitHub repo.
