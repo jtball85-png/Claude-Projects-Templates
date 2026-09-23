@@ -19,8 +19,9 @@ Run these commands and hold the output for the steps below.
 # What changed today
 git log --oneline --since="1 day ago"
 
-# What files were touched
-git diff --stat HEAD~1
+# What files were touched: committed today, plus anything uncommitted
+git diff --stat "$(git rev-list -1 --before='1 day ago' HEAD)" HEAD
+git diff --stat
 
 # Current branch
 git rev-parse --abbrev-ref HEAD
@@ -77,15 +78,15 @@ Replace with today's date:
 - Format: `Last updated: [YYYY-MM-DD] by Claude Code`
 
 ### b. Where we left off
-Replace the entire contents with:
+Replace the entire contents with exactly these three lines. Do not keep or stack earlier entries ("Latest / Newest / Previous"); history lives in git, project-memory.md and the build-order docs.
 ```
 Last commit: [hash] — [message]
-In progress: [any uncommitted work from git status, or "none"]
+In progress: [uncommitted work from git status in one or two sentences, or "none"]
 Branch: [current branch]
 ```
 
 ### c. What's next
-- Remove any tasks completed during this session
+- Move tasks completed during this session to `project-context-archive.md` (its "What's next — completed items" section), verbatim
 - Do not add new tasks unless the user explicitly states them
 - Leave all remaining tasks exactly as written
 
@@ -94,6 +95,13 @@ Append one new entry at the TOP. Do not remove existing entries.
 ```
 - [YYYY-MM-DD] — [one line per commit from git log] — Source: Claude Code
 ```
+
+---
+
+### e. Keep both files small (archive rotation)
+- Move `project-memory.md` sessions older than 7 days to the top of `project-memory-archive.md`, verbatim. Never move the "Key decisions (permanent record)" section.
+- Move `project-context.md` change-log entries older than 7 days, and Known-issues items marked Resolved/Fixed/Closed/Historical, to `project-context-archive.md`, verbatim.
+- Before deleting anything from the main file, confirm the text now exists in the archive.
 
 ---
 
@@ -112,7 +120,7 @@ Before committing, verify:
 ## 5. Commit both files
 
 ```bash
-git add project-context.md project-memory.md
+git add project-context.md project-memory.md project-context-archive.md project-memory-archive.md
 git commit -m "End of day [YYYY-MM-DD] — context and memory updated"
 ```
 

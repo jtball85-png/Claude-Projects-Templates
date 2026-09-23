@@ -36,14 +36,14 @@ Handle the result:
 
 ---
 
-## 2. Read both context files
+## 2. Read both context files (only the parts orientation needs)
 
-Read the following files from the project root:
+These files grow over time, so don't `cat` them whole. Read only:
 
-```bash
-cat project-context.md
-cat project-memory.md
-```
+- `project-context.md`: from the top through the end of the "What's next" section (find the line number of the next `## ` heading after `## What's next` with Grep, then Read up to it).
+- `project-memory.md`: the header, the "Key decisions" section and the newest `## Session` entry only.
+
+Older sessions are in `project-memory-archive.md`; completed tasks, older change-log entries and resolved issues are in `project-context-archive.md`. Read those only when something specific needs them.
 
 If either file is missing, stop and tell the user:
 - "project-context.md not found — please paste it directly into the chat."

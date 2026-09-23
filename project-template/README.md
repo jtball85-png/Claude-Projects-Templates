@@ -13,6 +13,8 @@ Every project has two memory files:
 |---|---|
 | `project-context.md` | Project status — what it is, where it stands, what's next |
 | `project-memory.md` | Session memory — decisions, reasoning, and context from every work session |
+| `CLAUDE.md` | Standing rules — loaded automatically by Claude Code and every subagent |
+| `*-archive.md` | Older sessions, finished tasks and old change-log entries — `/end-of-day` moves them here after 7 days so the two main files stay small enough to read at session start |
 
 Three slash commands run the system automatically inside Claude Code:
 
@@ -111,6 +113,9 @@ your-project/
     Dev-Team-Workflow.txt   ← what /dev-team does and when to use it
   project-context.md        ← project status (auto-updated by end-of-day)
   project-memory.md         ← session memory (auto-updated by end-of-day)
+  project-context-archive.md  ← finished tasks, old change log (end-of-day moves them here)
+  project-memory-archive.md   ← sessions older than 7 days (end-of-day moves them here)
+  CLAUDE.md                 ← standing rules, auto-loaded by Claude Code and subagents
   Project-Instructions.txt  ← paste this into your Claude Project instructions box
   README.md                 ← this file
 ```

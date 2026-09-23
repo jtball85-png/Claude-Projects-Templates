@@ -317,7 +317,7 @@ git rev-parse --is-inside-work-tree || git init
 Then commit:
 
 ```bash
-git add project-context.md project-memory.md
+git add project-context.md project-memory.md project-context-archive.md project-memory-archive.md CLAUDE.md
 git commit -m "New [app ]project initialized — [Project Name]"
 ```
 

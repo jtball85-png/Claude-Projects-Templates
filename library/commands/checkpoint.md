@@ -18,7 +18,8 @@ any tool's reach. This command ends by telling you to run it yourself.
 
 ```bash
 git log --oneline --since="4 hours ago"
-git diff --stat HEAD~1
+git diff --stat "$(git rev-list -1 --before='4 hours ago' HEAD)" HEAD
+git diff --stat
 git rev-parse --abbrev-ref HEAD
 git log -1 --format="%h %s"
 git status --porcelain
@@ -55,8 +56,9 @@ checkpoint today, append as its own entry — don't merge with an earlier one.
 Same three fields `/end-of-day` touches, nothing else:
 
 - **Last updated** → today's date, "by Claude Code"
-- **Where we left off** → last commit hash/message, in-progress work from
-  `git status`, current branch
+- **Where we left off** → replace the whole section with the three lines
+  `/end-of-day` specifies (last commit, in progress in one or two sentences,
+  branch). Never stack entries; the detail goes in the memory entry.
 - **Change log** → one new line at the top: `- [YYYY-MM-DD] — [summary] — Source: Claude Code`
 
 Leave **What's next** alone unless something on it was just finished.
@@ -64,7 +66,7 @@ Leave **What's next** alone unless something on it was just finished.
 ## 4. Commit and push
 
 ```bash
-git add project-context.md project-memory.md
+git add project-context.md project-memory.md project-context-archive.md project-memory-archive.md
 git commit -m "Checkpoint [YYYY-MM-DD] — mid-session save"
 ```
 

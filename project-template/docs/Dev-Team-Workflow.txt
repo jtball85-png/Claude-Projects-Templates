@@ -32,11 +32,17 @@ change directly. Use the individual agents or a normal session instead.
 
 HOW IT RUNS
 -------------
-  [ ] Run: /dev-team <task description>
-  [ ] architect produces a plan — shown to you, not gated on approval
+  [ ] Run: /dev-team [easy|medium|hard] [spec:<doc or section>] <task>
+        - easy   → done directly in the session, plus a check
+        - medium → coder + tester
+        - hard   → coder + tester + manager (coder and tester on Opus)
+        - no weight given → Claude picks one and says why
+        - spec: given (or an existing plan covers the task) → no architect
+  [ ] architect produces a plan (only when no spec exists) — shown to
+      you, not gated on approval
   [ ] coder implements it
-  [ ] tester verifies it
-  [ ] manager reviews plan + diff + test results
+  [ ] tester verifies it independently (reads the diff, not the report)
+  [ ] manager (hard only) reviews plan + diff + test results
         - clean → done
         - issues → one fix round back to coder, then re-test/re-review
         - still not right after that one round → stops and shows you

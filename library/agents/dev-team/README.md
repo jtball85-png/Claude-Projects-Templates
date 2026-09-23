@@ -29,4 +29,4 @@ If the manager sends fix notes back to the coder, that's one loop. If the result
 
 ## Using it
 
-Copy the four `.md` files into a project's `.claude/agents/` folder. They're then available as agent types on their own (for one-off delegation) or via the `/dev-team` command wired up in `project-template`, which runs the full pipeline in order.
+Copy the four `.md` files into a project's `.claude/agents/` folder. They're then available as agent types on their own (for one-off delegation) or via the `/dev-team` command wired up in `project-template`, which runs the pipeline sized to the task: `/dev-team [easy|medium|hard] [spec:<doc>] <task>`. Easy is done directly, medium is coder + tester, hard adds the manager (and runs the coder and tester on Opus); a `spec:` or an existing plan skips the architect.
