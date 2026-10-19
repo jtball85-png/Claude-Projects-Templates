@@ -107,6 +107,11 @@ your-project/
       dev-team.md            ← optional, multi-step feature work
       sync-tools.md           ← optional, pulls latest from library/
       checkpoint.md           ← optional, mid-session save before /clear
+  secrets/
+    README.md               ← how the Bitwarden secrets sync works + one-time setup
+    sync_secrets.ps1        ← what the .bat runs: unlock, sync, pull, lock
+    pull_env_from_vault.py  ← vault → local .env
+    push_env_to_vault.py    ← local .env → vault (after adding or rotating a key)
   docs/
     Daily-Workflow.txt      ← quick reference for daily steps
     Session-0-Project-Kickoff.txt  ← what /new-project asks and why
@@ -117,8 +122,28 @@ your-project/
   project-memory-archive.md   ← sessions older than 7 days (end-of-day moves them here)
   CLAUDE.md                 ← standing rules, auto-loaded by Claude Code and subagents
   Project-Instructions.txt  ← paste this into your Claude Project instructions box
+  Sync Bitwarden Secrets.bat  ← double-click to pull this project's API keys into .env
   README.md                 ← this file
 ```
+
+---
+
+## API keys and secrets (Bitwarden)
+
+Real API keys go in `.env`, which is gitignored, so it never reaches GitHub
+and never travels between computers through git. Bitwarden fills that gap.
+Each project's `.env` is stored in your Bitwarden vault as a secure note
+named `<project-folder-name> .env`.
+
+- **Pull keys onto this computer:** double-click `Sync Bitwarden Secrets.bat`
+  and type your Bitwarden master password into the masked prompt. It
+  unlocks, syncs, pulls into `.env`, and locks the vault again.
+- **Added or changed a key:** run `bw unlock`, set `BW_SESSION`, then
+  `python secrets/push_env_to_vault.py`.
+- Never paste the master password or a `bw unlock` session key into a
+  Claude chat. If one ends up there, run `bw lock` right away.
+
+Full details and first-time setup: `secrets/README.md`.
 
 ---
 

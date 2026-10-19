@@ -1,3 +1,6 @@
 archive/
 .claude/settings.local.json
 .sync-tools-tmp/
+.env
+.env.*
+!.env.example
